@@ -1,5 +1,5 @@
 /* Main CSS */
 canvas {
     background-color: darkgrey;
-    width:100%;
+    border: 1px dashed #ffffff;
 }
