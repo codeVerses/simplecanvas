@@ -1,8 +1,41 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 
-//head
+//hands
+function drawHands(h1x,h1y,h2x,h2y) {
+    ctx.beginPath();
+    ctx.lineWidth=2;
+    ctx.moveTo(278,298);
+    ctx.lineTo(h1x,h1y);
+    ctx.moveTo(314,300);
+    ctx.lineTo(h2x,h2y);
+    ctx.stroke(); 
+    }
 
+//keyboard
+function drawKey() {
+    ctx.beginPath();
+    ctx.lineWidth=1;
+    var imageObj = new Image();
+    imageObj.src = 'keyboard.jpg';
+    imageObj.onload = function() {
+        pat = ctx.createPattern(this, 'repeat');
+        ctx.rotate(-52*Math.PI/180);
+    ctx.rect(-100,480,150,80);
+    ctx.fillStyle=pat;
+    ctx.closePath();
+    ctx.fill();
+    ctx.rotate(52*Math.PI/180);
+    }; 
+ }
+
+
+function drawMe() {
+
+ctx.fillStyle="white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+//head
 ctx.beginPath();
 ctx.ellipse(300, 200, 75, 90, 10 * Math.PI/180, 0, 2 * Math.PI);
 ctx.stroke(); 
@@ -52,37 +85,22 @@ ctx.lineTo(260,350);
 ctx.moveTo(312,288);
 ctx.lineTo(320,350);
 ctx.stroke(); 
+}  
 
-//hands
-ctx.beginPath();
-ctx.lineWidth=2;
-ctx.moveTo(278,298);
-ctx.lineTo(368,335);
-ctx.lineTo(382,344);
-ctx.moveTo(314,300);
-ctx.lineTo(382,324);
-ctx.lineTo(392,330);
-ctx.stroke(); 
+function animate() {
+    drawMe();
+    drawKey();
+    if (anime) {
+    drawHands(368,335,374,288); 
+    anime = !anime
+    }
+    else {
+    drawHands(368,280,382,324);  
+    anime = !anime
+    }
+}
+anime = true;
+animate();
+var input = document.getElementById('input');
+input.addEventListener("keypress", animate);
 
-//keyboard
-ctx.beginPath();
-ctx.lineWidth=1;
-var imageObj = new Image();
-imageObj.src = 'keyboard.jpg';
-imageObj.onload = function() {
-    pat = ctx.createPattern(this, 'repeat');
-    ctx.rotate(-52*Math.PI/180);
-ctx.rect(-100,480,150,80);
-ctx.fillStyle=pat;
-ctx.fill();
-
-};
-
-
-
-// ctx.rotate(-52*Math.PI/180);
-// ctx.rect(-100,480,150,80);
-// ctx.fillStyle=pat;
-// ctx.fill();
-
-  

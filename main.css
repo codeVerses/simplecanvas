@@ -3,10 +3,17 @@
     padding-top:150px;
     width: 100%;
     text-align: center;
-
+    position: relative;
 }
 canvas {
     display: inline;
-    background-color: darkgrey;
-    border: 1px dashed #ffffff;
+    border: 1px dashed darkgray;
+}
+
+textarea {
+    position: absolute;
+    right:30%;
+    top: 60%;
+    border: 1px solid darkgray;   
+    font-size: 18px; 
 }
