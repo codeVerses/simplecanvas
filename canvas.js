@@ -68,16 +68,21 @@ ctx.stroke();
 ctx.beginPath();
 ctx.lineWidth=1;
 var imageObj = new Image();
-imageObj.src = 'keyboardpat.jpg';
+imageObj.src = 'keyboard.jpg';
 imageObj.onload = function() {
     pat = ctx.createPattern(this, 'repeat');
     ctx.rotate(-52*Math.PI/180);
 ctx.rect(-100,480,150,80);
 ctx.fillStyle=pat;
 ctx.fill();
+
 };
+
+
+
 // ctx.rotate(-52*Math.PI/180);
 // ctx.rect(-100,480,150,80);
 // ctx.fillStyle=pat;
 // ctx.fill();
 
+  
